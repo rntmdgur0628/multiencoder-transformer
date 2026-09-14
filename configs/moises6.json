@@ -1,0 +1,20 @@
+{
+  "sample_rate": 48000,
+  "n_fft": 1024,
+  "hop": 256,
+  "bands": 16,
+  "temporal_kernel": 512,
+  "d_model": 128,
+  "heads": 4,
+  "depth": 4,
+  "context_frames": 32,
+  "injection_frames": 8,
+  "liere_block": 4,
+  "gate_init": 0.001,
+  "angular_span": 3.141592653589793,
+  "time_scale": 1.0,
+  "gaussian_sigma_fraction": 0.16666666666666666,
+  "chirp_rates": [-4.0, 4.0],
+  "sources": ["vocals", "bass", "drums", "other", "piano", "guitar"],
+  "seed": 20260914
+}

@@ -1,0 +1,14 @@
+{
+  "sample_rate": 8000,
+  "n_fft": 64,
+  "hop": 16,
+  "bands": 4,
+  "temporal_kernel": 32,
+  "d_model": 16,
+  "heads": 2,
+  "depth": 1,
+  "context_frames": 3,
+  "injection_frames": 2,
+  "liere_block": 4,
+  "seed": 20260914
+}

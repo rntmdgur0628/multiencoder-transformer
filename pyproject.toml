@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multiencoder-transformer"
+version = "0.1.0"
+description = "Controlled T/G/C residual-attention and angular LieRE experiments for MSR"
+requires-python = ">=3.9"
+dependencies = ["torch>=2.2", "numpy>=1.24", "soundfile>=0.12"]
+
+[project.optional-dependencies]
+prepare = ["scipy>=1.10"]
+
+[project.scripts]
+msr = "msr.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

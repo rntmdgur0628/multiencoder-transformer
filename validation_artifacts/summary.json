@@ -1,0 +1,115 @@
+{
+  "scope": "synthetic implementation verification only",
+  "python": "3.9.6",
+  "torch": "2.8.0",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "device": "cpu",
+  "source_sha256": "a7c283d3a1a78cac12006c9048a21336cda5f0b2421ec1681798f41a3f3e035a",
+  "tests": 28,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "test_seconds": 2.099791291,
+  "smoke": [
+    {
+      "scope": "synthetic implementation smoke, not restoration quality",
+      "results": [
+        {
+          "variant": "A0",
+          "shape": [
+            1,
+            6,
+            2,
+            128
+          ],
+          "loss": 0.269614040851593,
+          "seconds": 0.004223333000000107,
+          "parameters": 28715,
+          "trainable_parameters": 25352,
+          "peak_cuda_bytes": null,
+          "gate_off_baseline_max_error": 0.0
+        },
+        {
+          "variant": "A1",
+          "shape": [
+            1,
+            6,
+            2,
+            128
+          ],
+          "loss": 0.269613653421402,
+          "seconds": 0.005581833000000369,
+          "parameters": 28715,
+          "trainable_parameters": 28523,
+          "peak_cuda_bytes": null,
+          "gate_off_baseline_max_error": 0.0
+        },
+        {
+          "variant": "A2",
+          "shape": [
+            1,
+            6,
+            2,
+            128
+          ],
+          "loss": 0.2696136236190796,
+          "seconds": 0.010798332999999882,
+          "parameters": 28715,
+          "trainable_parameters": 28715,
+          "peak_cuda_bytes": null,
+          "gate_off_baseline_max_error": 0.0
+        }
+      ]
+    },
+    {
+      "scope": "synthetic implementation smoke, not restoration quality",
+      "results": [
+        {
+          "variant": "A0",
+          "shape": [
+            1,
+            6,
+            2,
+            4096
+          ],
+          "loss": 1.724390983581543,
+          "seconds": 0.09489916599999981,
+          "parameters": 3767451,
+          "trainable_parameters": 3568536,
+          "peak_cuda_bytes": null,
+          "gate_off_baseline_max_error": 0.0
+        },
+        {
+          "variant": "A1",
+          "shape": [
+            1,
+            6,
+            2,
+            4096
+          ],
+          "loss": 1.7243996858596802,
+          "seconds": 0.09960812500000005,
+          "parameters": 3767451,
+          "trainable_parameters": 3765915,
+          "peak_cuda_bytes": null,
+          "gate_off_baseline_max_error": 0.0
+        },
+        {
+          "variant": "A2",
+          "shape": [
+            1,
+            6,
+            2,
+            4096
+          ],
+          "loss": 1.7243996858596802,
+          "seconds": 0.237781166,
+          "parameters": 3767451,
+          "trainable_parameters": 3767451,
+          "peak_cuda_bytes": null,
+          "gate_off_baseline_max_error": 0.0
+        }
+      ]
+    }
+  ]
+}

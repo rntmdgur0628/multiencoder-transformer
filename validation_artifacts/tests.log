@@ -1,0 +1,33 @@
+test_all_masked_is_zero_and_finite (test_core.CoreTests) ... ok
+test_backward_all_arms_and_silence (test_core.CoreTests) ... ok
+test_bad_release_clock_is_rejected (test_core.CoreTests) ... ok
+test_coordinates_only_shuffle_changes_message (test_core.CoreTests) ... ok
+test_end_to_end_joint_permutation_and_wrong_track (test_core.CoreTests) ... ok
+test_frozen_adapter_keeps_backbone_and_has_pe_gradient (test_core.CoreTests) ... ok
+test_future_perturbation_tokens_and_delayed_waveform (test_core.CoreTests) ... ok
+test_kv_joint_permutation (test_core.CoreTests) ... ok
+test_late_change_in_one_branch_cannot_affect_earlier_message (test_core.CoreTests) ... ok
+test_local_attention_calls_four_dimensional_sdpa (test_core.CoreTests) ... ok
+test_orthogonal_periodic_and_gradient (test_core.CoreTests) ... ok
+test_reference_roundtrip_boundaries (test_core.CoreTests) ... ok
+test_same_hz_same_coordinate_across_grids (test_core.CoreTests) ... ok
+test_small_one_batch_fit_reduces_loss (test_core.CoreTests) ... ok
+test_temporal_has_no_frequency (test_core.CoreTests) ... ok
+test_zero_gate_exactly_recovers_baseline (test_core.CoreTests) ... ok
+test_corrupt_checkpoint_contract_is_rejected (test_operations.OperationsTests) ... ok
+test_moises_export_reads_actual_metadata_layout (test_operations.OperationsTests) ... ok
+test_paired_comparison_clusters_repeated_song_views (test_operations.OperationsTests) ... ok
+test_audio_content_mutation_changes_fingerprint (test_workflow.WorkflowTests) ... ok
+test_end_to_end_adapter_transfer_evaluate_infer (test_workflow.WorkflowTests) ... ok
+test_group_leakage_and_official_validation_rejected (test_workflow.WorkflowTests) ... ok
+test_manifest_absence_and_msr_input (test_workflow.WorkflowTests) ... ok
+test_parent_training_and_selection_leaks_rejected (test_workflow.WorkflowTests) ... ok
+test_resume_is_bitwise_same_as_uninterrupted (test_workflow.WorkflowTests) ... ok
+test_sampler_independent_of_model_rng (test_workflow.WorkflowTests) ... ok
+test_taxonomy_transfer_and_shared_new_head_initialization (test_workflow.WorkflowTests) ... ok
+test_track_statistics_match_whole_waveform (test_workflow.WorkflowTests) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 2.055s
+
+OK
