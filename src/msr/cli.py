@@ -264,6 +264,19 @@ def main(argv=None):
         from .prepare import export_moises
         print(export_moises(args.root, args.splits, args.output_dir, args.sample_rate))
     prepare.set_defaults(func=prepare_command)
+    split = commands.add_parser("make-moises-splits")
+    split.add_argument("--root", required=True)
+    split.add_argument("--output", required=True)
+    split.add_argument("--seed", type=int, default=20260915)
+    split.add_argument("--train", type=float, default=0.8)
+    split.add_argument("--validation", type=float, default=0.1)
+    split.add_argument("--test", type=float, default=0.1)
+    def split_command(args):
+        from .splits import make_moises_splits
+        split_path, audit_path = make_moises_splits(args.root, args.output, seed=args.seed,
+            train=args.train, validation=args.validation, test=args.test)
+        print(json.dumps({"splits": str(split_path), "audit": str(audit_path)}))
+    split.set_defaults(func=split_command)
     compare = commands.add_parser("compare")
     compare.add_argument("--baseline", required=True)
     compare.add_argument("--candidate", required=True)

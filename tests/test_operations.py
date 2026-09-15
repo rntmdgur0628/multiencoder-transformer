@@ -14,9 +14,28 @@ from msr.checkpoint import load_checkpoint, save_checkpoint
 from msr.compare import compare_results
 from msr.data import AudioManifest
 from msr.prepare import export_moises
+from msr.splits import make_moises_splits
 
 
 class OperationsTests(unittest.TestCase):
+    def test_metadata_song_groups_are_deterministic_and_missing_fields_audited(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "raw"
+            records = (("uuid-a", "Artist", "Same Song"), ("uuid-b", " artist ", "same   song"),
+                       ("uuid-c", "", "No Artist"))
+            for name, artist, song in records:
+                folder = root / name
+                folder.mkdir(parents=True)
+                (folder / "data.json").write_text(json.dumps({"artist": artist, "song": song, "stems": []}))
+            split_path = Path(directory) / "splits.json"
+            output, audit = make_moises_splits(root, split_path, seed=7)
+            result = json.loads(output.read_text())
+            self.assertEqual(result["uuid-a"], result["uuid-b"])
+            self.assertTrue(result["uuid-c"]["group"].endswith("uuid-c"))
+            audit_doc = json.loads(audit.read_text())
+            self.assertEqual(audit_doc["uuid_fallback_tracks"], ["uuid-c"])
+            with self.assertRaisesRegex(ValueError, "already exists"):
+                make_moises_splits(root, split_path, seed=7)
     def test_moises_export_reads_actual_metadata_layout(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

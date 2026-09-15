@@ -58,6 +58,17 @@ msr smoke --config configs/moises6.json --samples 4096
 
 `group`은 다른 mix/버전/데이터셋에 등장해도 같은 원곡이면 같은 값이어야 한다. 위 ID는 예시이며 실제 metadata UUID로 바꾼다. Exporter는 split에 명시한 곡만 준비한다.
 
+MoisesDB 원본에 들어 있는 `artist + song` metadata로 첫 deterministic split을 만들 수 있다. 동일한 정규화 artist/song은 같은 group으로 묶이고, 둘 중 하나가 비어 있는 곡은 UUID fallback으로 audit에 표시된다. 이는 같은 곡의 다른 이름/metadata 오류를 자동으로 찾아내지는 않는다.
+
+```bash
+msr make-moises-splits \
+  --root /absolute/path/to/moisesdb \
+  --output /absolute/path/to/project/splits/moises_song_splits_seed20260915.json \
+  --seed 20260915
+```
+
+생성된 `.audit.json`에서 `uuid_fallback_tracks`와 split별 group 수를 확인한 뒤에만 exporter를 실행한다.
+
 ```bash
 msr prepare-moises --root /absolute/path/to/moisesdb \
   --splits /absolute/path/to/song_splits.json \
