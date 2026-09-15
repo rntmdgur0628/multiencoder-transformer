@@ -29,6 +29,25 @@ msr smoke --config configs/moises6.json --samples 4096
 
 `scripts/validate.py`는 재실행 가능한 테스트 로그와 machine-readable smoke 결과를 `validation_artifacts/`에 저장한다.
 
+## 서버 Docker 실행
+
+`Dockerfile`, `scripts/build_local_image.sh`, `scripts/run_local_container.sh`는 **서버 호스트**에서 실행한다. 원본 MoisesDB는 server host에 두고 컨테이너에는 read-only로 mount한다.
+
+```bash
+export PROJECT_DIR=/home/your-id/projects/multiencoder-transformer
+export MOISES_DIR=/private/intern_2026_summer_private_dataset/ku/dataset/moisesdb
+export CACHE_DIR=/private/intern_2026_summer_private_dataset/ku/msr/cache
+export RUN_DIR=/private/intern_2026_summer_private_dataset/ku/msr/runs
+export GPU_ID=0
+export IMAGE_NAME=multiencoder-transformer:local
+
+cd "$PROJECT_DIR"
+bash scripts/build_local_image.sh
+bash scripts/run_local_container.sh
+```
+
+The build script accepts `BASE_IMAGE` to override its CUDA/PyTorch base image. The run script fails before starting if any host path, image, Docker daemon, or `data.json` mount is absent. Inside the container the matching roots are `/workspace/project`, `/workspace/data/moises`, `/workspace/cache`, and `/workspace/runs`.
+
 ## 보고서에서 구현으로 고정한 선택
 
 - **새 baseline lineage**다. 기존 `multiencoder` 폴더는 결과 archive였고, historical 구현의 G/C latent는 주파수 전체를 projection했다. 기존 checkpoint를 새 모델인 것처럼 불러오지 않는다.
