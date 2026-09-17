@@ -5,5 +5,8 @@ __pycache__/
 runs/
 data/
 *.pt
+*.ckpt
+checkpoints/
+bsr-baseline-code-*.tar.gz
 *.wav
 .DS_Store
