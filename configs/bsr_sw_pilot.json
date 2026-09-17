@@ -1,0 +1,12 @@
+{
+  "checkpoint": "/workspace/project/bsroformer/bsroformer/BS-Rofo-SW-Fixed.ckpt",
+  "model_config": "/workspace/project/bsroformer/bsroformer/BS-Rofo-SW-Fixed.yaml",
+  "manifest": "/workspace/cache/moises6_48k_seed20260915_v3/manifest.json",
+  "backend_cache": "/workspace/cache/bsr_backend",
+  "baseline_run": "/workspace/runs/bsr_b0_full_20260917_v1",
+  "updates": 200,
+  "seed": 20260917,
+  "learning_rate": 0.0001,
+  "gradient_clip": 1.0,
+  "precision": "fp16"
+}
